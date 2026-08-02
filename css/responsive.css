@@ -1,0 +1,108 @@
+/* ==========================================================================
+   RESPONSIVIDADE — Mobile First
+   Breakpoints: 480px (phablet), 768px (tablet), 1024px (desktop), 1440px (ultra-wide)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BASE MOBILE (< 768px) — menu hambúrguer
+   -------------------------------------------------------------------------- */
+.main-nav { position: relative; }
+.nav-toggle { display: flex; }
+
+.nav-list {
+  position: fixed;
+  top: var(--header-height);
+  left: 0; right: 0;
+  flex-direction: column;
+  align-items: stretch;
+  background: rgba(5,7,10,0.98);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-md);
+  gap: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-base);
+}
+.nav-list.is-open { max-height: 80vh; overflow-y: auto; }
+.nav-list li { border-bottom: 1px solid var(--border-subtle); }
+.nav-list li:last-child { border-bottom: none; }
+.nav-list a { display: block; padding: 0.9rem 0.2rem; }
+
+.nav-cta { display: none; }
+
+/* --------------------------------------------------------------------------
+   480px+ — smartphones grandes
+   -------------------------------------------------------------------------- */
+@media (min-width: 480px) {
+  .hero-stats { gap: var(--space-md); }
+  .type-toggle label { font-size: 0.95rem; }
+}
+
+/* --------------------------------------------------------------------------
+   768px+ — tablets: menu horizontal volta, grids em 2 colunas
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+  .nav-list {
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    border-bottom: none;
+    padding: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  .nav-list li { border-bottom: none; }
+  .nav-list a { padding: 0.4rem 0.1rem; }
+  .nav-cta { display: flex; }
+
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .feature-row { grid-template-columns: 1.1fr 1fr; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .profile-select { grid-template-columns: repeat(2, 1fr); }
+  .quick-links { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .charts-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid .full-width { grid-column: 1 / -1; }
+
+  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+}
+
+/* --------------------------------------------------------------------------
+   1024px+ — desktop: hero em duas colunas, dashboard em painel lateral
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
+  .hero-stats { grid-template-columns: repeat(3, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .steps-grid { grid-template-columns: repeat(4, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(4, 1fr); }
+  .dashboard-grid { grid-template-columns: 0.95fr 1.4fr; }
+  .dashboard-grid .panel-form { grid-row: span 2; }
+  .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+  .form-grid.form-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   1440px+ — ultra-wide
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .container { max-width: 1400px; }
+  .hero { min-height: 88vh; }
+  .charts-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* --------------------------------------------------------------------------
+   Ajustes finos de mobile puro (< 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 479px) {
+  .hero-actions .btn { flex: 1; }
+  .hero-visual .float-card { display: none; }
+  .dashboard-actions .btn span.btn-label { display: none; }
+  table.data-table { min-width: 620px; }
+}
