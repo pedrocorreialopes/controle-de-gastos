@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Financeiro | Pedro & Glícia — Controle de Gastos</title>
+  <meta name="description" content="Dashboard financeiro de Pedro & Glícia: lance entradas e saídas, acompanhe gráficos de gastos, calendário de vencimentos e exporte relatórios em PDF.">
+  <meta name="keywords" content="dashboard financeiro, controle de gastos, gastos, financeiro, planilha online, Fortaleza">
+  <meta name="author" content="Pedro Correia Lopes Filho">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://pedroeglicia.com.br/dashboard.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dashboard Financeiro | Pedro & Glícia">
+  <meta property="og:description" content="Acompanhe entradas, saídas, gráficos e calendário de vencimentos em um só painel.">
+  <meta property="og:image" content="images/hero-dashboard.png">
+  <meta property="og:url" content="https://pedroeglicia.com.br/dashboard.html">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dashboard Financeiro | Pedro & Glícia">
+  <meta name="twitter:description" content="Painel de controle de gastos financeiros com gráficos e calendário.">
+  <meta name="twitter:image" content="images/hero-dashboard.png">
+
+  <link rel="icon" type="image/png" href="images/logo-pg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Pedro & Glícia - Página inicial">
+        <img src="images/logo-pg.png" alt="Logotipo Pedro & Glícia" width="40" height="40">
+        <span class="brand-name">Pedro & Glícia<small>Fazendo a economia acontecer</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Abrir menu de navegação">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#servicos">Funcionalidades</a></li>
+          <li><a href="index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="area-cliente.html">Área do Cliente</a></li>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="https://wa.me/5585999999999" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="dashboard-shell container">
+      <div class="dashboard-head">
+        <div>
+          <span class="who-badge"><i class="fa-solid fa-user" aria-hidden="true"></i> Perfil: <strong id="whoLabel">Ambos</strong></span>
+          <h1 style="margin-bottom:0.2rem;">Dashboard Financeiro</h1>
+          <p style="margin-bottom:0;">Controle completo das entradas e saídas de Pedro & Glícia.</p>
+        </div>
+        <div class="dashboard-actions">
+          <button type="button" class="btn btn-ghost btn-sm" id="btnShareWhats"><i class="fab fa-whatsapp" aria-hidden="true"></i> <span class="btn-label">Compartilhar</span></button>
+          <button type="button" class="btn btn-outline btn-sm" id="btnExportPdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> <span class="btn-label">Exportar PDF</span></button>
+          <button type="button" class="btn btn-primary btn-sm" id="btnRefresh"><i class="fa-solid fa-rotate" aria-hidden="true"></i> <span class="btn-label">Atualizar</span></button>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <section class="kpi-grid" aria-label="Indicadores financeiros">
+        <div class="kpi-card kpi-credit">
+          <div class="kpi-label"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> Total de Entradas</div>
+          <div class="kpi-value" id="kpiCredito">R$ 0,00</div>
+          <div class="kpi-sub">Créditos no período filtrado</div>
+        </div>
+        <div class="kpi-card kpi-debit">
+          <div class="kpi-label"><i class="fa-solid fa-arrow-trend-down" aria-hidden="true"></i> Total de Saídas</div>
+          <div class="kpi-value" id="kpiDebito">R$ 0,00</div>
+          <div class="kpi-sub">Débitos no período filtrado</div>
+        </div>
+        <div class="kpi-card kpi-balance">
+          <div class="kpi-label"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Saldo</div>
+          <div class="kpi-value" id="kpiSaldo">R$ 0,00</div>
+          <div class="kpi-sub">Entradas − Saídas</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i> Pendentes</div>
+          <div class="kpi-value" id="kpiPendentes">0</div>
+          <div class="kpi-sub">Contas ainda não pagas</div>
+        </div>
+      </section>
+
+      <!-- Formulário + Tabela -->
+      <div class="dashboard-grid">
+        <!-- FORMULÁRIO -->
+        <section class="panel panel-form" id="form-lancamento" aria-labelledby="form-title">
+          <div class="panel-head">
+            <h2 id="form-title"><i class="fa-solid fa-plus text-accent" aria-hidden="true"></i> Novo Lançamento</h2>
+          </div>
+          <form id="transactionForm" novalidate>
+            <input type="hidden" id="editId" value="">
+
+            <div class="form-group" style="margin-bottom: var(--space-sm);">
+              <label id="tipoLabel">Tipo de lançamento <span class="req">*</span></label>
+              <div class="type-toggle" role="radiogroup" aria-labelledby="tipoLabel">
+                <input type="radio" name="tipo" id="tipoCredito" value="Crédito" checked>
+                <label for="tipoCredito" class="type-credit"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i> Crédito (Entrada)</label>
+                <input type="radio" name="tipo" id="tipoDebito" value="Débito">
+                <label for="tipoDebito" class="type-debit"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i> Débito (Saída)</label>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="categoria">Categoria <span class="req">*</span></label>
+                <select id="categoria" class="form-control" required aria-required="true"></select>
+                <span class="field-error" id="err-categoria"></span>
+              </div>
+              <div class="form-group">
+                <label for="valor">Valor (R$) <span class="req">*</span></label>
+                <input type="number" id="valor" class="form-control" min="0.01" step="0.01" placeholder="0,00" required aria-required="true">
+                <span class="field-error" id="err-valor"></span>
+              </div>
+              <div class="form-group full-width">
+                <label for="descricao">Descrição <span class="req">*</span></label>
+                <input type="text" id="descricao" class="form-control" placeholder="Ex: Salário mensal, Fatura do cartão..." required aria-required="true" maxlength="120">
+                <span class="field-error" id="err-descricao"></span>
+              </div>
+              <div class="form-group">
+                <label for="data">Data <span class="req">*</span></label>
+                <input type="date" id="data" class="form-control" required aria-required="true">
+                <span class="field-error" id="err-data"></span>
+              </div>
+              <div class="form-group">
+                <label for="formaPagamento">Forma de pagamento</label>
+                <select id="formaPagamento" class="form-control">
+                  <option>Pix</option>
+                  <option>Dinheiro</option>
+                  <option>Cartão de Débito</option>
+                  <option>Cartão de Crédito</option>
+                  <option>Boleto</option>
+                  <option>Transferência</option>
+                  <option>Débito Automático</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="responsavel">Responsável</label>
+                <select id="responsavel" class="form-control">
+                  <option>Pedro</option>
+                  <option>Glícia</option>
+                  <option selected>Ambos</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" class="form-control">
+                  <option>Pago</option>
+                  <option>Pendente</option>
+                </select>
+              </div>
+              <div class="form-group full-width">
+                <label for="observacoes">Observações</label>
+                <textarea id="observacoes" class="form-control" rows="2" maxlength="300" placeholder="Detalhes adicionais (opcional)"></textarea>
+              </div>
+              <div class="form-group full-width">
+                <label id="uploadLabel">Comprovante (opcional)</label>
+                <div class="file-drop" id="fileDrop" tabindex="0" role="button" aria-labelledby="uploadLabel">
+                  <i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i>
+                  <span>Clique ou arraste um arquivo (PDF, JPG, PNG)</span>
+                  <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.webp">
+                </div>
+                <span class="file-name-preview" id="fileNamePreview"><i class="fa-solid fa-paperclip" aria-hidden="true"></i> <span id="fileNameText"></span> <button type="button" id="removeFile" class="icon-btn danger" style="margin-left:auto;" aria-label="Remover arquivo"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></span>
+              </div>
+            </div>
+
+            <div class="form-msg" id="formMsg" role="alert"></div>
+
+            <div style="display:flex; gap:0.6rem; margin-top: var(--space-md);">
+              <button type="submit" class="btn btn-primary btn-block" id="btnSubmit"><i class="fa-solid fa-check" aria-hidden="true"></i> Salvar Lançamento</button>
+              <button type="button" class="btn btn-ghost" id="btnCancelEdit" style="display:none;">Cancelar</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- LISTA / TABELA -->
+        <section class="panel" id="tabela" aria-labelledby="table-title">
+          <div class="panel-head">
+            <h2 id="table-title"><i class="fa-solid fa-table-list text-accent" aria-hidden="true"></i> Lançamentos</h2>
+          </div>
+          <div class="filters-bar" role="search" aria-label="Filtros de lançamentos">
+            <input type="search" id="filterSearch" class="form-control" placeholder="Buscar descrição ou categoria..." aria-label="Buscar lançamentos">
+            <select id="filterTipo" class="form-control" aria-label="Filtrar por tipo">
+              <option value="">Todos os tipos</option>
+              <option value="Crédito">Crédito</option>
+              <option value="Débito">Débito</option>
+            </select>
+            <select id="filterResponsavel" class="form-control" aria-label="Filtrar por responsável">
+              <option value="">Todos</option>
+              <option value="Pedro">Pedro</option>
+              <option value="Glícia">Glícia</option>
+              <option value="Ambos">Ambos</option>
+            </select>
+            <select id="filterStatus" class="form-control" aria-label="Filtrar por status">
+              <option value="">Qualquer status</option>
+              <option value="Pago">Pago</option>
+              <option value="Pendente">Pendente</option>
+            </select>
+            <button type="button" class="btn btn-ghost btn-sm" id="btnClearFilters">Limpar filtros</button>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table" id="dataTable">
+              <thead>
+                <tr>
+                  <th scope="col">Data</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Categoria</th>
+                  <th scope="col">Descrição</th>
+                  <th scope="col">Responsável</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Valor</th>
+                  <th scope="col">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- Linhas geradas via JS -->
+              </tbody>
+            </table>
+          </div>
+          <div class="empty-state" id="emptyState" style="display:none;">
+            <i class="fa-solid fa-inbox" aria-hidden="true"></i>
+            <p>Nenhum lançamento encontrado. Adicione o primeiro pelo formulário ao lado.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- GRÁFICOS -->
+      <section class="panel" id="graficos" style="margin-top: var(--space-lg);" aria-labelledby="graficos-title">
+        <div class="panel-head">
+          <h2 id="graficos-title"><i class="fa-solid fa-chart-pie text-accent" aria-hidden="true"></i> Visão Gráfica</h2>
+        </div>
+        <div class="charts-grid">
+          <div class="card">
+            <h3>Entradas vs Saídas (por mês)</h3>
+            <div class="chart-box"><canvas id="chartBarras" role="img" aria-label="Gráfico de barras comparando entradas e saídas por mês"></canvas></div>
+          </div>
+          <div class="card">
+            <h3>Saídas por categoria</h3>
+            <div class="chart-box"><canvas id="chartDonut" role="img" aria-label="Gráfico de rosca com distribuição de saídas por categoria"></canvas></div>
+          </div>
+          <div class="card" style="grid-column: 1 / -1;">
+            <h3>Evolução do saldo</h3>
+            <div class="chart-box"><canvas id="chartLinha" role="img" aria-label="Gráfico de linha mostrando a evolução do saldo ao longo do tempo"></canvas></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALENDÁRIO -->
+      <section class="panel" id="calendario" style="margin-top: var(--space-lg);" aria-labelledby="calendario-title">
+        <div class="panel-head">
+          <h2 id="calendario-title"><i class="fa-solid fa-calendar-days text-accent" aria-hidden="true"></i> Calendário de Vencimentos</h2>
+        </div>
+        <div class="calendar-head">
+          <button type="button" class="icon-btn" id="calPrev" aria-label="Mês anterior"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <h3 id="calMonthLabel">Mês / Ano</h3>
+          <button type="button" class="icon-btn" id="calNext" aria-label="Próximo mês"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="calendar-grid" id="calendarGrid" role="table" aria-label="Calendário de lançamentos financeiros"></div>
+        <div class="calendar-legend">
+          <span><span class="legend-dot" style="background:#34d399;"></span> Entrada (crédito)</span>
+          <span><span class="legend-dot" style="background:#fb7185;"></span> Saída (débito)</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Modal de confirmação de exclusão -->
+  <div class="modal-backdrop" id="modalConfirm" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <i class="fa-solid fa-triangle-exclamation" style="font-size:2rem;color:#fb7185;" aria-hidden="true"></i>
+      <h3 id="modalTitle">Excluir lançamento?</h3>
+      <p>Esta ação não pode ser desfeita.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost btn-block" id="modalCancel">Cancelar</button>
+        <button type="button" class="btn btn-danger btn-block" id="modalConfirmDelete">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <a href="https://wa.me/5585999999999" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf-autotable.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Cliente | Pedro & Glícia — Controle Financeiro</title>
+  <meta name="description" content="Área do Cliente Pedro & Glícia: escolha seu perfil, acesse rapidamente o dashboard, o calendário de vencimentos e registre novos lançamentos financeiros.">
+  <meta name="keywords" content="área do cliente, controle de gastos, financeiro, gastos, Fortaleza">
+  <meta name="author" content="Pedro Correia Lopes Filho">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pedroeglicia.com.br/area-cliente.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Área do Cliente | Pedro & Glícia">
+  <meta property="og:description" content="Acesse sua área pessoal de controle financeiro.">
+  <meta property="og:image" content="images/hero-dashboard.png">
+  <meta property="og:url" content="https://pedroeglicia.com.br/area-cliente.html">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Área do Cliente | Pedro & Glícia">
+  <meta name="twitter:description" content="Acesse sua área pessoal de controle financeiro.">
+  <meta name="twitter:image" content="images/hero-dashboard.png">
+
+  <link rel="icon" type="image/png" href="images/logo-pg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Área do Cliente - Pedro & Glícia",
+    "description": "Área pessoal de acesso ao controle de gastos financeiros.",
+    "inLanguage": "pt-BR"
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Pedro & Glícia - Página inicial">
+        <img src="images/logo-pg.png" alt="Logotipo Pedro & Glícia" width="40" height="40">
+        <span class="brand-name">Pedro & Glícia<small>Fazendo a economia acontecer</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navList" aria-label="Abrir menu de navegação">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#servicos">Funcionalidades</a></li>
+          <li><a href="index.html#depoimentos">Depoimentos</a></li>
+          <li><a href="area-cliente.html" aria-current="page">Área do Cliente</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="https://wa.me/5585999999999" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+          <a href="dashboard.html" class="btn btn-primary btn-sm">Acessar Dashboard</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="client-hero" aria-labelledby="client-title">
+      <div class="container">
+        <span class="eyebrow" style="justify-content:center;">Área do Cliente</span>
+        <h1 id="client-title">Olá! Quem está acessando hoje?</h1>
+        <p style="max-width:600px;margin:0 auto;">Escolha seu perfil para personalizar seu dashboard e acompanhar de forma rápida suas entradas e saídas financeiras.</p>
+
+        <div class="profile-select" role="group" aria-label="Selecionar perfil de acesso">
+          <button type="button" class="profile-card" data-profile="Pedro" aria-pressed="false">
+            <div class="profile-avatar">P</div>
+            <h3>Pedro</h3>
+            <p>Ver meus lançamentos e resumo financeiro pessoal.</p>
+          </button>
+          <button type="button" class="profile-card" data-profile="Glícia" aria-pressed="false">
+            <div class="profile-avatar">G</div>
+            <h3>Glícia</h3>
+            <p>Ver meus lançamentos e resumo financeiro pessoal.</p>
+          </button>
+        </div>
+
+        <div class="welcome-banner" id="welcomeBanner">
+          <span><i class="fa-solid fa-circle-check text-accent" aria-hidden="true"></i> Perfil selecionado: <strong id="welcomeName"></strong></span>
+          <a href="dashboard.html" class="btn btn-primary btn-sm">Ir para o Dashboard <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" aria-labelledby="quicklinks-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">Acesso rápido</span>
+          <h2 id="quicklinks-title">Tudo que você precisa, a um clique</h2>
+        </div>
+        <div class="quick-links">
+          <a href="dashboard.html#form-lancamento" class="quick-link-card" data-reveal>
+            <div class="icon-tile"><i class="fa-solid fa-plus" aria-hidden="true"></i></div>
+            <div><h3>Novo lançamento</h3><p>Registre uma entrada (crédito) ou saída (débito) rapidamente.</p></div>
+          </a>
+          <a href="dashboard.html#graficos" class="quick-link-card" data-reveal>
+            <div class="icon-tile"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></div>
+            <div><h3>Ver dashboard</h3><p>Gráficos de entradas, saídas e evolução do saldo.</p></div>
+          </a>
+          <a href="dashboard.html#calendario" class="quick-link-card" data-reveal>
+            <div class="icon-tile"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></div>
+            <div><h3>Calendário de vencimentos</h3><p>Acompanhe contas a pagar e a receber no mês.</p></div>
+          </a>
+          <a href="dashboard.html#tabela" class="quick-link-card" data-reveal>
+            <div class="icon-tile"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></div>
+            <div><h3>Exportar relatório PDF</h3><p>Gere um PDF completo do seu histórico financeiro.</p></div>
+          </a>
+          <a href="https://wa.me/5585999999999" target="_blank" rel="noopener" class="quick-link-card" data-reveal>
+            <div class="icon-tile"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></div>
+            <div><h3>Falar no WhatsApp</h3><p>Tire dúvidas ou compartilhe um resumo financeiro.</p></div>
+          </a>
+          <a href="dashboard.html#tabela" class="quick-link-card" data-reveal>
+            <div class="icon-tile"><i class="fa-solid fa-paperclip" aria-hidden="true"></i></div>
+            <div><h3>Comprovantes</h3><p>Anexe arquivos de comprovantes aos seus lançamentos.</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad section-alt" aria-labelledby="about-title">
+      <div class="container">
+        <div class="feature-row" data-reveal>
+          <div>
+            <span class="eyebrow">Como usar a Área do Cliente</span>
+            <h2 id="about-title">Simples, pessoal e direto ao ponto</h2>
+            <p>A Área do Cliente foi criada para que Pedro e Glícia possam identificar rapidamente quem está lançando cada gasto, sem burocracia e sem necessidade de senhas complexas — apenas praticidade no dia a dia.</p>
+            <ul class="feature-list">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><div><strong>Escolha seu perfil</strong><span>Selecione "Pedro" ou "Glícia" para personalizar a experiência.</span></div></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><div><strong>Acesse o dashboard</strong><span>Seu perfil é usado para filtrar os lançamentos automaticamente.</span></div></li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i><div><strong>Continue de onde parou</strong><span>Seu perfil fica salvo neste dispositivo para acesso rápido nas próximas visitas.</span></div></li>
+            </ul>
+          </div>
+          <div class="card" style="padding:var(--space-lg);">
+            <div class="icon-tile"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></div>
+            <h3>Privacidade em primeiro lugar</h3>
+            <p>Todos os dados ficam armazenados de forma organizada e são utilizados exclusivamente para o controle financeiro pessoal do casal em Fortaleza.</p>
+            <a href="dashboard.html" class="btn btn-outline btn-block">Ir para o Dashboard <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand" aria-label="Pedro & Glícia">
+            <img src="images/logo-pg.png" alt="Logotipo Pedro & Glícia" width="40" height="40">
+            <span class="brand-name">Pedro & Glícia<small>Fazendo a economia acontecer</small></span>
+          </a>
+          <p>Ferramenta online de controle de gastos financeiros criada para organizar entradas e saídas, com dashboard, calendário e relatórios em PDF.</p>
+          <div class="social-links" aria-label="Redes sociais">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://wa.me/5585999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="area-cliente.html">Área do Cliente</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Fortaleza, CE, Brasil</li>
+            <li><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/5585999999999" target="_blank" rel="noopener">(85) 99999-9999</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Pedro & Glícia — Controle de Gastos Financeiros. Todos os direitos reservados.</p>
+        <p>Criado e desenvolvido por <strong>Pedro Correia Lopes Filho</strong>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5585999999999" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar no WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+  </a>
+
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/area-cliente.js" defer></script>
+</body>
+</html>
